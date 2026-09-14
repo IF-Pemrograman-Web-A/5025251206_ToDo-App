@@ -1,0 +1,111 @@
+/* Pengaturan Dasar */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f5f0; 
+    color: #313d33; 
+}
+
+header, footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #2c4230; 
+    color: #ffffff; 
+    border: none;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+
+.layout-container {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto; 
+}
+
+
+.left-panel, .todo-detail-container, .todo-form-container {
+    background-color: #ffffff; 
+    border: 2px solid #a3b1a6; 
+    padding: 20px;
+}
+
+.left-panel {
+    flex: 1; 
+}
+
+.right-panel {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+ul.todo-list {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+ul.todo-list li {
+    border-bottom: 1px solid #d2d8d3;
+    padding: 15px 0;
+}
+
+ul.todo-list li:last-child {
+    border-bottom: none; 
+}
+
+ul.todo-list button {
+    margin-left: 10px;
+    background-color: #c96e62; 
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #4a5d4e;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; 
+    border: 1px solid #a3b1a6;
+    font-family: inherit;
+    background-color: #fdfdfc;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #557c5d; 
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #3f5c45; 
+}
+
+@media (max-width: 768px) {
+    .layout-container {
+        flex-direction: column; 
+    }
+}
