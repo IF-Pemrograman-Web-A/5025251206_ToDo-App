@@ -5,12 +5,10 @@
 - Kelas: PWEB A
 
 ## Deskripsi
-website to-do list ini dibuat hanya dengan HTML dan CSS ditambah data yang ditampilkan adalah data dummy dan website ini sudah bisa responsive pada tampilan dekstop maupun mobile
+menambahkan java script pada website to-do list yang membuat website dapat melakukan penambahan task baru, edit & delete task, dan settingan dark mode/light mode
 
 
 ## Preview
 ### Dekstop
-<img width="1901" height="913" alt="Screenshot 2026-09-14 183336" src="https://github.com/user-attachments/assets/abec54d4-5aaf-4f00-a1b5-3556d51fb1d1" />
+<img width="1912" height="1025" alt="image" src="https://github.com/user-attachments/assets/61ac61ba-fa49-4a72-94e9-5b491d9ade2e" />
 
-### Mobile
-<img width="616" height="896" alt="image" src="https://github.com/user-attachments/assets/7f3a8e61-1b68-4bc3-a04a-3f6396bee139" />
