@@ -10,28 +10,14 @@
 
     <header>
         <h1>ToDo list Website</h1>
+        <button id="theme-toggle">Toggle Dark Mode</button>
     </header>
 
     <div class="layout-container">
         <main class="left-panel">
             <section class="todo-list-container">
                 <h2>Task List</h2>
-                <ul class="todo-list">
-                    <li>
-                        <strong>KPPL</strong>
-                        <button type="button">Delete</button><br>
-                        <small>Due: September 20, 2026</small>
-                    </li>
-                    <li>
-                        <strong>PBO</strong>
-                        <button type="button">Delete</button><br>
-                        <small>Due: September 25, 2026</small>
-                    </li>
-                    <li>
-                        <strong>PWEB</strong>
-                        <button type="button">Delete</button><br>
-                        <small>Due: September 27, 2026</small>
-                    </li>
+                <ul class="todo-list" id="todo-list">
                 </ul>
             </section>
         </main>
@@ -39,17 +25,14 @@
         <aside class="right-panel">
             <section class="todo-detail-container">
                 <h2>Task Details</h2>
-                <div class="detail-card">
-                    <h3>PWEB</h3>
-                    <p><strong>Status:</strong> In Progress</p>
-                    <p><strong>Due:</strong> September 14, 2026</p>
-                    <p>Tugas E01a membuat website todo list</p>
+                <div class="detail-card" id="task-detail-card">
+                    <p><em>Click a task name to view details</em></p>
                 </div>
             </section>
 
             <section class="todo-form-container">
-                <h2>Create New Task</h2>
-                <form action="#" method="POST">
+                <h2>Create / Edit Task</h2>
+                <form id="todo-form" action="#" method="POST">
                     <div class="form-group">
                         <label for="task_name">Task Name:</label>
                         <input type="text" id="task_name" name="task_name" required>
@@ -62,15 +45,16 @@
                         <label for="task_deadline">Due Date:</label>
                         <input type="date" id="task_deadline" name="task_deadline" required>
                     </div>
-                    <button type="submit">Add Task</button>
+                    <button type="submit" id="submit-btn">Add Task</button>
                 </form>
             </section>
         </aside>
     </div>
 
     <footer>
-
+        <p>&copy; Pemrograman Web</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
