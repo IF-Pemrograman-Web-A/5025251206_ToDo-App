@@ -5,12 +5,14 @@
 - Kelas: PWEB A
 
 ## Deskripsi
-website to-do list ini dibuat hanya dengan HTML dan CSS ditambah data yang ditampilkan adalah data dummy dan website ini sudah bisa responsive pada tampilan dekstop maupun mobile
+Lanjutan untuk website ini sudah ditambahkan beberapa komponen seperti web storage yg digunakan untuk nge-save web nya, kemudian menambahkna komponen tab untuk penggunaan disabilitas,kemudaian media capture bisa menambahkan gambar, service worker & notification API
 
 
 ## Preview
 ### Dekstop
-<img width="1901" height="913" alt="Screenshot 2026-09-14 183336" src="https://github.com/user-attachments/assets/abec54d4-5aaf-4f00-a1b5-3556d51fb1d1" />
+<img width="1912" height="1027" alt="image" src="https://github.com/user-attachments/assets/81c366e2-6df9-49b6-b78f-3749f5da83d1" />
+
 
 ### Mobile
-<img width="616" height="896" alt="image" src="https://github.com/user-attachments/assets/7f3a8e61-1b68-4bc3-a04a-3f6396bee139" />
+<img width="547" height="890" alt="image" src="https://github.com/user-attachments/assets/e37b6eea-f7a4-405f-acea-0774723c1421" />
+
