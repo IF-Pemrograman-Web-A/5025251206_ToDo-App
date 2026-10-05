@@ -8,69 +8,69 @@
 </head>
 <body>
 
-    <header>
+    <!-- A11y Announcer (Hanya dibaca oleh Screen Reader) -->
+    <div id="a11y-announcer" class="sr-only" aria-live="polite"></div>
+
+    <header role="banner">
         <h1>ToDo list Website</h1>
+        <button id="theme-toggle" aria-label="Toggle Light or Dark Mode">Toggle Dark Mode</button>
     </header>
 
     <div class="layout-container">
-        <main class="left-panel">
-            <section class="todo-list-container">
-                <h2>Task List</h2>
-                <ul class="todo-list">
-                    <li>
-                        <strong>KPPL</strong>
-                        <button type="button">Delete</button><br>
-                        <small>Due: September 20, 2026</small>
-                    </li>
-                    <li>
-                        <strong>PBO</strong>
-                        <button type="button">Delete</button><br>
-                        <small>Due: September 25, 2026</small>
-                    </li>
-                    <li>
-                        <strong>PWEB</strong>
-                        <button type="button">Delete</button><br>
-                        <small>Due: September 27, 2026</small>
-                    </li>
+        <!-- Panel Kiri: Task List -->
+        <main class="left-panel" role="main">
+            <section class="todo-list-container" aria-labelledby="list-heading">
+                <h2 id="list-heading">Task List</h2>
+                <ul class="todo-list" id="todo-list" aria-live="polite">
+                    <!-- List digenerate oleh JS -->
                 </ul>
             </section>
         </main>
 
-        <aside class="right-panel">
-            <section class="todo-detail-container">
-                <h2>Task Details</h2>
-                <div class="detail-card">
-                    <h3>PWEB</h3>
-                    <p><strong>Status:</strong> In Progress</p>
-                    <p><strong>Due:</strong> September 14, 2026</p>
-                    <p>Tugas E01a membuat website todo list</p>
+        <!-- Panel Kanan: Detail & Form -->
+        <aside class="right-panel" role="complementary">
+            <section class="todo-detail-container" aria-labelledby="detail-heading">
+                <h2 id="detail-heading">Task Details</h2>
+                <div class="detail-card" id="task-detail-card" aria-live="polite">
+                    <p><em>Click a task name to view details</em></p>
                 </div>
             </section>
 
-            <section class="todo-form-container">
-                <h2>Create New Task</h2>
-                <form action="#" method="POST">
+            <section class="todo-form-container" aria-labelledby="form-heading">
+                <h2 id="form-heading">Create / Edit Task</h2>
+                <form id="todo-form" action="#" method="POST" aria-label="Task Form">
                     <div class="form-group">
                         <label for="task_name">Task Name:</label>
-                        <input type="text" id="task_name" name="task_name" required>
+                        <input type="text" id="task_name" name="task_name" required aria-required="true">
                     </div>
                     <div class="form-group">
                         <label for="task_description">Description:</label>
-                        <textarea id="task_description" name="task_description" rows="3" required></textarea>
+                        <textarea id="task_description" name="task_description" rows="3" required aria-required="true"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="task_deadline">Due Date:</label>
-                        <input type="date" id="task_deadline" name="task_deadline" required>
+                        <input type="date" id="task_deadline" name="task_deadline" required aria-required="true">
                     </div>
-                    <button type="submit">Add Task</button>
+                    <!-- CRITERIA 2: Media Capture API -->
+                    <div class="form-group">
+                        <label for="task_image">Attachment (Camera/Image):</label>
+                        <input type="file" id="task_image" name="task_image" accept="image/*" capture="environment">
+                    </div>
+                    <!-- CRITERIA 3: Notification Time Field -->
+                    <div class="form-group">
+                        <label for="task_notif">Notification Time:</label>
+                        <input type="datetime-local" id="task_notif" name="task_notif">
+                    </div>
+                    <button type="submit" id="submit-btn" aria-label="Submit Task">Add Task</button>
                 </form>
             </section>
         </aside>
     </div>
 
-    <footer>
-
+    <footer role="contentinfo">
+        <p>&copy; 2026 The Style Warrior - Todo List</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
