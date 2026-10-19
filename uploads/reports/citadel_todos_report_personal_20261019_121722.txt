@@ -1,0 +1,27 @@
+===========================================================================
+  CITADEL TODO LIST - SUMMARY REPORT (PERSONAL)
+  Generated at: 19 October 2026, 12:17:22
+  Total Tasks : 3
+===========================================================================
+
+[1] [IN PROGRESS] Menyelesaikan Tugas 4 PWEB (PHP & MySQL)
+    Category     : Personal
+    Due Date     : 2026-10-25
+    Notification : 2026-10-25 09:00:00
+    Attachment   : None
+    Description  : Melakukan migrasi sistem todo HTML/JS ke modular PHP, integrasi database MySQL, implementasi menu bar Personal & Shared, serta file handling.
+---------------------------------------------------------------------------
+[2] [IN PROGRESS] Review Materi Ujian Pemrograman Web
+    Category     : Personal
+    Due Date     : 2026-10-28
+    Notification : 2026-10-28 14:00:00
+    Attachment   : None
+    Description  : Mempelajari kembali konsep PHP OOP, PDO prepared statements, session handling, dan keamanan web (SQL Injection & XSS prevention).
+---------------------------------------------------------------------------
+[3] [COMPLETED] Membeli Buku Referensi Web Architecture & Kopi
+    Category     : Personal
+    Due Date     : 2026-10-20
+    Notification : None
+    Attachment   : None
+    Description  : Membeli perlengkapan referensi belajar dan persediaan kopi untuk sesi coding marathon tugas kuliah.
+---------------------------------------------------------------------------

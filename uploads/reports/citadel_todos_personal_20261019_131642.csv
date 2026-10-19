@@ -1,0 +1,4 @@
+﻿ID,"Task Name",Category,Status,"Due Date","Notification Time",Attachment,Description,"Created At"
+1,"Menyelesaikan Tugas 4 PWEB (PHP & MySQL)",Personal,Pending,2026-10-25,"2026-10-25 09:00:00",None,"Melakukan migrasi sistem todo HTML/JS ke modular PHP, integrasi database MySQL, implementasi menu bar Personal & Shared, serta file handling.","2026-10-19 08:00:00"
+2,"Review Materi Ujian Pemrograman Web",Personal,Pending,2026-10-28,"2026-10-28 14:00:00",None,"Mempelajari kembali konsep PHP OOP, PDO prepared statements, session handling, dan keamanan web (SQL Injection & XSS prevention).","2026-10-19 09:30:00"
+3,"Membeli Buku Referensi Web Architecture & Kopi",Personal,Completed,2026-10-20,-,None,"Membeli perlengkapan referensi belajar dan persediaan kopi untuk sesi coding marathon tugas kuliah.","2026-10-18 10:15:00"
