@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2c4230">
+    <title>The Offline Abyss - Citadel Todo</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Standalone fallback styles for offline page */
+        :root {
+            --abyss-bg: #141c16;
+            --abyss-card: #1f2c22;
+            --abyss-border: #334d3a;
+            --abyss-text: #e2e8f0;
+            --abyss-accent: #38bdf8;
+            --abyss-gold: #f59e0b;
+            --abyss-green: #10b981;
+        }
+        body.offline-body {
+            background: linear-gradient(135deg, #0d140f 0%, #17241a 50%, #1f2f24 100%);
+            color: var(--abyss-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .offline-container {
+            max-width: 680px;
+            margin: 60px auto 40px auto;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .offline-card {
+            background-color: rgba(31, 44, 34, 0.95);
+            border: 1px solid var(--abyss-border);
+            border-radius: 16px;
+            padding: 36px 30px;
+            box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        .offline-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--abyss-gold);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            margin-bottom: 20px;
+        }
+        .offline-icon-wrap {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            background: rgba(56, 189, 248, 0.1);
+            border: 2px dashed rgba(56, 189, 248, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(56, 189, 248, 0); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(56, 189, 248, 0.25); }
+        }
+        .offline-title {
+            font-size: 1.85rem;
+            margin: 0 0 12px 0;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .offline-subtitle {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #94a3b8;
+            margin: 0 0 24px 0;
+        }
+        .offline-lore {
+            background: rgba(15, 23, 42, 0.6);
+            border-left: 4px solid var(--abyss-accent);
+            padding: 14px 18px;
+            border-radius: 8px;
+            text-align: left;
+            margin-bottom: 28px;
+            font-size: 0.92rem;
+            color: #cbd5e1;
+            line-height: 1.55;
+        }
+        .offline-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+        .btn-abyss {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .btn-retry {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+        .btn-retry:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+        .btn-cache {
+            background-color: #456d4e;
+            color: #ffffff;
+        }
+        .btn-cache:hover {
+            background-color: #33533b;
+            transform: translateY(-1px);
+        }
+        .connection-indicator {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        .indicator-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ef4444;
+            margin-right: 6px;
+        }
+        .indicator-dot.online {
+            background-color: #10b981;
+        }
+    </style>
+</head>
+<body class="offline-body">
+
+    <!-- Header Banner -->
+    <header role="banner" class="app-header" style="background-color: #142017; border-bottom: 1px solid #283e2e;">
+        <div class="header-content">
+            <div class="brand">
+                <span class="brand-icon">🏰</span>
+                <div class="brand-text">
+                    <h1>Citadel Todo</h1>
+                    <p class="brand-subtitle">[E05] The Offline Abyss Mode</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Abyss Content -->
+    <main class="offline-container" role="main">
+        <section class="offline-card" aria-labelledby="offline-heading">
+            <div class="offline-badge">
+                <span>⚡ The Offline Abyss</span>
+            </div>
+
+            <div class="offline-icon-wrap" aria-hidden="true">
+                📡
+            </div>
+
+            <h2 id="offline-heading" class="offline-title">Koneksi Internet Terputus</h2>
+            <p class="offline-subtitle">
+                Deep in the lost cavern, your signal is gone. Sinyal Anda terputus dari jaringan pusat, namun sistem Service Worker Citadel siap melindungi data Anda.
+            </p>
+
+            <div class="offline-lore">
+                <strong>🛡️ Mode Offline Abyss Aktif:</strong>
+                <p style="margin: 6px 0 0 0;">
+                    Aplikasi web ini telah dilengkapi <strong>Progressive Web App (PWA)</strong> dengan <em>Cache Storage</em>. 
+                    Anda tetap dapat melihat App Shell dan daftar tugas yang sebelumnya telah tersimpan di cache lokal peramban Anda.
+                </p>
+            </div>
+
+            <div class="offline-actions">
+                <button type="button" class="btn-abyss btn-retry" onclick="checkConnectionAndReload()">
+                    🔄 Coba Sambungkan Lagi
+                </button>
+                <a href="index.php" class="btn-abyss btn-cache">
+                    📋 Buka Todo dari Cache
+                </a>
+            </div>
+
+            <div class="connection-indicator" id="conn-status">
+                <span class="indicator-dot" id="conn-dot"></span>
+                <span id="conn-text">Mode Saat Ini: Offline (Tanpa Sinyal)</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo" class="app-footer" style="background-color: #0e1711; border-top: 1px solid #1f2f23;">
+        <div class="footer-content">
+            <p>&copy; 2026 The Style Warrior - Iron Citadel Organizational Todo</p>
+            <p class="footer-subtext">[E05] Progressive Web App with Service Worker & Offline Cache Storage</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateStatus() {
+            const dot = document.getElementById('conn-dot');
+            const text = document.getElementById('conn-text');
+            if (navigator.onLine) {
+                dot.classList.add('online');
+                text.textContent = 'Koneksi kembali Online! Mengalihkan ke aplikasi...';
+                setTimeout(() => {
+                    window.location.href = 'index.php';
+                }, 1200);
+            } else {
+                dot.classList.remove('online');
+                text.textContent = 'Mode Saat Ini: Offline (Tanpa Sinyal)';
+            }
+        }
+
+        function checkConnectionAndReload() {
+            const text = document.getElementById('conn-text');
+            text.textContent = 'Memeriksa koneksi...';
+            fetch('index.php', { method: 'HEAD', cache: 'no-store' })
+                .then(() => {
+                    text.textContent = 'Koneksi ditemukan! Memuat ulang...';
+                    window.location.href = 'index.php';
+                })
+                .catch(() => {
+                    text.textContent = 'Masih offline. Coba periksa koneksi Wi-Fi atau data Anda.';
+                    setTimeout(updateStatus, 2000);
+                });
+        }
+
+        window.addEventListener('online', updateStatus);
+        window.addEventListener('offline', updateStatus);
+        updateStatus();
+    </script>
+</body>
+</html>
