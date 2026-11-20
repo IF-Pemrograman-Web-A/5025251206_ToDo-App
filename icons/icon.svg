@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2f22"/>
+      <stop offset="50%" stop-color="#2c4230"/>
+      <stop offset="100%" stop-color="#456d4e"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded box -->
+  <rect width="512" height="512" rx="108" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle inner border -->
+  <rect x="12" y="12" width="488" height="488" rx="96" fill="none" stroke="#5a8b65" stroke-width="4" stroke-opacity="0.4"/>
+
+  <!-- Citadel Shield / Tower Silhouette -->
+  <path d="M156 120 L356 120 L356 280 C356 360 256 410 256 410 C256 410 156 360 156 280 Z" 
+        fill="url(#shieldGrad)" stroke="#6fa37b" stroke-width="6" filter="url(#shadow)"/>
+
+  <!-- Citadel Battlements (Castle top) -->
+  <path d="M180 145 H210 V175 H235 V145 H277 V175 H302 V145 H332 V210 H180 Z" 
+        fill="#ffffff" fill-opacity="0.25"/>
+
+  <!-- Todo List Lines -->
+  <!-- Line 1 with check -->
+  <circle cx="210" cy="250" r="14" fill="#10b981"/>
+  <path d="M204 250 L208 254 L216 246" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="235" y="244" width="95" height="12" rx="6" fill="#e2e8f0"/>
+
+  <!-- Line 2 with check -->
+  <circle cx="210" cy="295" r="14" fill="#10b981"/>
+  <path d="M204 295 L208 299 L216 291" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="235" y="289" width="75" height="12" rx="6" fill="#e2e8f0"/>
+
+  <!-- Line 3 in progress -->
+  <circle cx="210" cy="340" r="14" fill="url(#goldGrad)"/>
+  <rect x="235" y="334" width="85" height="12" rx="6" fill="#cbd5e1"/>
+
+  <!-- Offline Lightning / Abyss emblem badge -->
+  <circle cx="390" cy="390" r="44" fill="#1e293b" stroke="#38bdf8" stroke-width="5" filter="url(#shadow)"/>
+  <path d="M394 365 L374 392 L388 392 L384 415 L406 386 L392 386 Z" fill="#38bdf8"/>
+</svg>

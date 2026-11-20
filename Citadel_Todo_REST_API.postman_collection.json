@@ -1,0 +1,470 @@
+{
+  "info": {
+    "_postman_id": "c1a2d3e4-f5a6-4b7c-8d9e-citadeltodo2026",
+    "name": "Citadel Todo RESTful API [E06: Portal to All Dimensions]",
+    "description": "Postman Collection resmi untuk pengujian RESTful API Todo App (Tugas E06).\n\nMencakup:\n1. Operasi CRUD lengkap (GET, POST, PUT, PATCH, DELETE)\n2. Pengujian respon sukses (200 OK, 201 Created)\n3. Pengujian respon error / wrong response code (400 Bad Request, 404 Not Found, 405 Method Not Allowed, 500 Server Error)\n4. Pengujian Autentikasi API Key (401 Unauthorized vs Valid Key)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost/sekolah_sj/PWEB/api",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "citadel-secret-key-2026",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "1. Positive Tests (Success 200 & 201)",
+      "item": [
+        {
+          "name": "1.1 GET All Todos (200 OK)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"]
+            },
+            "description": "Mengambil seluruh daftar tugas dari database MySQL."
+          }
+        },
+        {
+          "name": "1.2 GET Filter by Category - Personal (200 OK)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?category=personal",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "personal"
+                }
+              ]
+            },
+            "description": "Mengambil daftar tugas khusus kategori personal."
+          }
+        },
+        {
+          "name": "1.3 GET Filter by Category - Shared (200 OK)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?category=shared",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "shared"
+                }
+              ]
+            },
+            "description": "Mengambil daftar tugas khusus kategori shared (organisasi)."
+          }
+        },
+        {
+          "name": "1.4 GET Todo by ID (200 OK)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?id=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Mengambil detail 1 tugas spesifik berdasarkan ID."
+          }
+        },
+        {
+          "name": "1.5 POST Create New Todo (201 Created)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Eksplorasi Portal Dimensi E06\",\n  \"description\": \"Menguji seluruh RESTful API endpoints menggunakan Postman dengan response code 201 Created.\",\n  \"category\": \"personal\",\n  \"due_date\": \"2026-12-15\",\n  \"notif_time\": \"2026-12-15 08:30:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/todos.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"]
+            },
+            "description": "Membuat tugas baru ke dalam database dan mengembalikan status 201 Created."
+          }
+        },
+        {
+          "name": "1.6 PUT Update Todo by ID (200 OK)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Menyelesaikan Tugas 4 & E06 PWEB (Updated)\",\n  \"description\": \"Integrasi REST API, status code validation, dan API Key Auth.\",\n  \"category\": \"personal\",\n  \"due_date\": \"2026-12-20\",\n  \"is_completed\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?id=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Memperbarui seluruh data tugas ID 1 dan mengembalikan status 200 OK."
+          }
+        },
+        {
+          "name": "1.7 PATCH Toggle Completed Status (200 OK)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"is_completed\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?id=2",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "2"
+                }
+              ]
+            },
+            "description": "Memperbarui sebagian atribut (status selesai) menggunakan metode PATCH."
+          }
+        },
+        {
+          "name": "1.8 DELETE Todo by ID (200 OK)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?id=3",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "3"
+                }
+              ]
+            },
+            "description": "Menghapus tugas berdasarkan ID dan mengembalikan status 200 OK beserta ID yang terhapus."
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Negative Tests (Wrong Response Codes - 400, 404, 405)",
+      "item": [
+        {
+          "name": "2.1 GET Todo by ID - 404 Not Found",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?id=99999",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "99999"
+                }
+              ]
+            },
+            "description": "Mencoba mengambil ID yang tidak ada di database. Menghasilkan HTTP 404 Not Found."
+          }
+        },
+        {
+          "name": "2.2 GET Todo by ID - 400 Bad Request (Invalid String ID)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?id=abc",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "abc"
+                }
+              ]
+            },
+            "description": "Mencoba mengirim parameter ID berupa teks bukan angka. Menghasilkan HTTP 400 Bad Request."
+          }
+        },
+        {
+          "name": "2.3 POST Create Todo - 400 Bad Request (Missing Required Fields)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Tugas tanpa title dan tanpa due_date\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/todos.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"]
+            },
+            "description": "Mengirim data tanpa field wajib 'title' dan 'due_date'. Menghasilkan HTTP 400 Bad Request dengan rincian pesan error."
+          }
+        },
+        {
+          "name": "2.4 POST Create Todo - 400 Bad Request (Invalid Category)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Tugas Salah Kategori\",\n  \"due_date\": \"2026-12-31\",\n  \"category\": \"invalid_dimension\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/todos.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"]
+            },
+            "description": "Mengirim kategori di luar 'personal' dan 'shared'. Menghasilkan HTTP 400 Bad Request."
+          }
+        },
+        {
+          "name": "2.5 PUT Update Todo - 404 Not Found (Non-Existent ID)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Update Data Hantu\",\n  \"due_date\": \"2026-12-31\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?id=88888",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "88888"
+                }
+              ]
+            },
+            "description": "Mencoba memperbarui ID yang tidak terdaftar di database. Menghasilkan HTTP 404 Not Found."
+          }
+        },
+        {
+          "name": "2.6 PUT Update Todo - 400 Bad Request (Missing ID Parameter)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Update Tanpa ID\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/todos.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"]
+            },
+            "description": "Melakukan request PUT tanpa menyertakan parameter ID. Menghasilkan HTTP 400 Bad Request."
+          }
+        },
+        {
+          "name": "2.7 DELETE Todo - 404 Not Found (Non-Existent ID)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?id=77777",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "77777"
+                }
+              ]
+            },
+            "description": "Mencoba menghapus ID yang tidak ada di database. Menghasilkan HTTP 404 Not Found."
+          }
+        },
+        {
+          "name": "2.8 DELETE Todo - 400 Bad Request (Missing ID)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"]
+            },
+            "description": "Melakukan request DELETE tanpa parameter ID. Menghasilkan HTTP 400 Bad Request."
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Authentication Tests (401 Unauthorized vs Valid)",
+      "item": [
+        {
+          "name": "3.1 Missing API Key (401 Unauthorized)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"]
+            },
+            "description": "Mengirim request tanpa menyertakan API Key. Menghasilkan respon HTTP 401 Unauthorized."
+          }
+        },
+        {
+          "name": "3.2 Wrong API Key (401 Unauthorized)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-KEY",
+                "value": "kunci-rahasia-yang-salah"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"]
+            },
+            "description": "Mengirim request dengan API Key yang salah. Menghasilkan respon HTTP 401 Unauthorized (Invalid API Key)."
+          }
+        },
+        {
+          "name": "3.3 Bearer Token Auth Format (200 OK)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"]
+            },
+            "description": "Menggunakan otentikasi format standar Bearer Token di Header Authorization."
+          }
+        },
+        {
+          "name": "3.4 Query Parameter Auth (200 OK)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/todos.php?api_key={{apiKey}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["todos.php"],
+              "query": [
+                {
+                  "key": "api_key",
+                  "value": "{{apiKey}}"
+                }
+              ]
+            },
+            "description": "Mengirimkan API Key melalui query parameter ?api_key=..."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[2026-10-19 12:17:22] [ACTION: EXPORT_TXT] Berhasil membuat file text report (citadel_todos_report_personal_20261019_121722.txt)
+[2026-10-19 13:16:42] [ACTION: EXPORT_CSV] Berhasil mengekspor 3 tugas ke file CSV (citadel_todos_personal_20261019_131642.csv)
+[2026-10-19 13:35:18] [ACTION: UPDATE_TASK] Tugas ID 4 'ETS KPPL' berhasil diperbarui.
+[2026-10-19 13:35:22] [ACTION: TOGGLE_STATUS] Tugas 'Audit Keamanan & File Handling Upload System' diubah menjadi Belum Selesai (Pending).
+[2026-10-19 13:35:25] [ACTION: TOGGLE_STATUS] Tugas 'Audit Keamanan & File Handling Upload System' diubah menjadi Selesai (Completed).
+[2026-10-19 13:36:10] [ACTION: DELETE_TASK] Tugas 'Membeli Buku Referensi Web Architecture & Kopi' (ID: 3) berhasil dihapus.
+[2026-11-20 11:27:45] [ACTION: API_CREATE_TASK] API POST membuat tugas ID 7 'Eksplorasi Portal Dimensi E06'
+[2026-11-20 15:51:17] [ACTION: API_UPDATE_TASK] API PUT memperbarui tugas ID 1 'Menyelesaikan Tugas 4 & E06 PWEB (Updated)'
+[2026-11-20 15:52:16] [ACTION: API_UPDATE_TASK] API PATCH memperbarui tugas ID 2 'Review Materi Ujian Pemrograman Web'
+[2026-11-20 15:53:49] [ACTION: API_DELETE_TASK] API DELETE menghapus tugas ID 7 'Eksplorasi Portal Dimensi E06'
