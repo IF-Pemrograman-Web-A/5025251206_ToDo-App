@@ -5,12 +5,16 @@
 - Kelas: PWEB A
 
 ## Deskripsi
-website to-do list ini dibuat hanya dengan HTML dan CSS ditambah data yang ditampilkan adalah data dummy dan website ini sudah bisa responsive pada tampilan dekstop maupun mobile
+mengimplementasikan RESTful API pada website ToDo list serta melakukan pengecekan menggunakan postman
 
 
 ## Preview
-### Dekstop
-<img width="1901" height="913" alt="Screenshot 2026-09-14 183336" src="https://github.com/user-attachments/assets/abec54d4-5aaf-4f00-a1b5-3556d51fb1d1" />
+<img width="1907" height="1050" alt="Screenshot 2026-11-20 172820" src="https://github.com/user-attachments/assets/6f7ca9c3-7b13-4142-b2cc-b15820eda11b" />
+<img width="1916" height="1076" alt="Screenshot 2026-11-20 172857" src="https://github.com/user-attachments/assets/091ae2d3-fe44-4eeb-941c-1ad149db6bbb" />
+<img width="1916" height="1075" alt="Screenshot 2026-11-20 172939" src="https://github.com/user-attachments/assets/f6540497-9c80-427e-bbcb-214c0f43be71" />
+<img width="1917" height="1078" alt="Screenshot 2026-11-20 173022" src="https://github.com/user-attachments/assets/bf4485be-483a-4a4c-be08-652e90521402" />
+<img width="1898" height="1077" alt="Screenshot 2026-11-20 215130" src="https://github.com/user-attachments/assets/be1c9add-8e7d-4d89-bab1-560bba8d9a0d" />
+<img width="1917" height="1078" alt="Screenshot 2026-11-20 215224" src="https://github.com/user-attachments/assets/f7e201b8-3302-4ae5-85f4-f7a5e4178282" />
+<img width="1917" height="1078" alt="Screenshot 2026-11-20 215359" src="https://github.com/user-attachments/assets/9a628f8f-5af6-4667-9d2a-1df0c82d2d90" />
+<img width="1906" height="1031" alt="Screenshot 2026-11-20 172731" src="https://github.com/user-attachments/assets/4976e15d-1d37-4ee4-848d-67e7e308734d" />
 
-### Mobile
-<img width="616" height="896" alt="image" src="https://github.com/user-attachments/assets/7f3a8e61-1b68-4bc3-a04a-3f6396bee139" />
